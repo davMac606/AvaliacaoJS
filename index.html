@@ -10,16 +10,17 @@
 
 <body>
     <script>
+        //esse codigo ta mt feio senhor eu quero me 
         function calcular() {
             var distancia = document.getElementById("distancia").value;
             var tempo = document.getElementById("tempo").value;
             var resultado = distancia / tempo;
-            if (distancia <= 0|| isNaN(distancia)) {
+            if (distancia <= 0 || isNaN(distancia)) {
                 document.getElementById('avisoDistancia').style.color = "red";
                 document.getElementById('avisoDistancia').innerHTML = "Digite um valor válido para distância.";
                 document.getElementById('resultadoVelocidade').innerHTML = " ";
             } else {
-                if (tempo <= 0|| isNaN(tempo)) {
+                if (tempo <= 0 || isNaN(tempo)) {
                     document.getElementById('avisoTempo').style.color = "red";
                     document.getElementById('avisoTempo').innerHTML = "Digite um valor válido para tempo.";
                     document.getElementById('resultadoVelocidade').innerHTML = " ";
@@ -44,12 +45,12 @@
                             document.getElementById("resultadoVelocidade").innerHTML = "A velocidade média é: " + resultado + " km/h";
                             document.getElementById("distancia").value = "";
                             document.getElementById("tempo").value = "";
-                        } 
-                        
+                        }
+
                     }
                 }
-                
-                    
+
+
             }
         }
     </script>
