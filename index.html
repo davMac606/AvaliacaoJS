@@ -14,39 +14,55 @@
             var distancia = document.getElementById("distancia").value;
             var tempo = document.getElementById("tempo").value;
             var resultado = distancia / tempo;
-            if (distancia == 0|| tempo == 0) {
-                alert("Digite um valor válido!");
+            if (distancia <= 0|| isNaN(distancia)) {
+                document.getElementById('avisoDistancia').style.color = "red";
+                document.getElementById('avisoDistancia').innerHTML = "Digite um valor válido para distância.";
                 document.getElementById('resultadoVelocidade').innerHTML = " ";
             } else {
-                if (resultado > 100) {
-                    document.getElementById('resultadoVelocidade').style.color = "red";
-                    document.getElementById('resultadoVelocidade').innerHTML = "A velocidade de " + resultado + "km/h não é permitida.";
+                if (tempo <= 0|| isNaN(tempo)) {
+                    document.getElementById('avisoTempo').style.color = "red";
+                    document.getElementById('avisoTempo').innerHTML = "Digite um valor válido para tempo.";
+                    document.getElementById('resultadoVelocidade').innerHTML = " ";
                 } else {
-                    if (resultado <= 0) {
+                    if (resultado > 100) {
+                        document.getElementById('avisoDistancia').innerHTML = " ";
                         document.getElementById('resultadoVelocidade').style.color = "red";
-                        document.getElementById('resultadoVelocidade').innerHTML = "A velocidade não pode ser inferior ou igual à 0.";
-                    }
-                    if (resultado < 40) {
-                        document.getElementById('resultadoVelocidade').innerHTML = "A velocidade de " + resultado + "km/h é muito baixa, acelere.";
+                        document.getElementById('resultadoVelocidade').innerHTML = "A velocidade de " + resultado + "km/h não é permitida.";
                     } else {
-                        document.getElementById('resultadoVelocidade').style.color = "lime";
-                        document.getElementById("resultadoVelocidade").innerHTML = "A velocidade média é: " + resultado + " km/h";
-                        document.getElementById("distancia").value = "";
-                        document.getElementById("tempo").value = "";
-                    } 
-                    
+                        if (resultado <= 0) {
+                            document.getElementById('avisoDistancia').innerHTML = " ";
+                            document.getElementById('resultadoVelocidade').style.color = "red";
+                            document.getElementById('resultadoVelocidade').innerHTML = "A velocidade não pode ser inferior ou igual à 0.";
+                        }
+                        if (resultado < 40) {
+                            document.getElementById('avisoDistancia').innerHTML = " ";
+                            document.getElementById('resultadoVelocidade').style.color = "black";
+                            document.getElementById('resultadoVelocidade').innerHTML = "A velocidade de " + resultado + "km/h é muito baixa, acelere.";
+                        } else {
+                            document.getElementById('avisoDistancia').innerHTML = " ";
+                            document.getElementById('resultadoVelocidade').style.color = "lime";
+                            document.getElementById("resultadoVelocidade").innerHTML = "A velocidade média é: " + resultado + " km/h";
+                            document.getElementById("distancia").value = "";
+                            document.getElementById("tempo").value = "";
+                        } 
+                        
+                    }
                 }
+                
                     
             }
         }
     </script>
     <form>
         <p>Distância:</p>
-        <input type="text" id="distancia" required>Quilômetros<br><br>
-
+        <input type="text" id="distancia" required>Quilômetros<br>
+        <span id="avisoDistancia"></span>
+        <br><br>
 
         <p>Tempo:</p>
-        <input type="text" id="tempo" required>Horas<br><br>
+        <input type="text" id="tempo" required>Horas<br>
+        <span id="avisoTempo"></span>
+        <br><br>
 
 
         <input type="button" value="Calcular Velocidade Média" onclick="calcular()">
