@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Avaliação - JavaScript</title>
+</head>
+
+<body>
+    <script>
+        function calcular() {
+            var distancia = document.getElementById("distancia").value;
+            var tempo = document.getElementById("tempo").value;
+            var resultado = distancia / tempo;
+            if (distancia == 0|| tempo == 0) {
+                alert("Digite um valor válido!");
+                document.getElementById('resultadoVelocidade').innerHTML = " ";
+            } else {
+                if (resultado > 100) {
+                    document.getElementById('resultadoVelocidade').style.color = "red";
+                    document.getElementById('resultadoVelocidade').innerHTML = "A velocidade de " + resultado + "km/h não é permitida.";
+                } else {
+                    if (resultado <= 0) {
+                        document.getElementById('resultadoVelocidade').style.color = "red";
+                        document.getElementById('resultadoVelocidade').innerHTML = "A velocidade não pode ser inferior ou igual à 0.";
+                    }
+                    if (resultado < 40) {
+                        document.getElementById('resultadoVelocidade').innerHTML = "A velocidade de " + resultado + "km/h é muito baixa, acelere.";
+                    } else {
+                        document.getElementById('resultadoVelocidade').style.color = "lime";
+                        document.getElementById("resultadoVelocidade").innerHTML = "A velocidade média é: " + resultado + " km/h";
+                        document.getElementById("distancia").value = "";
+                        document.getElementById("tempo").value = "";
+                    } 
+                    
+                }
+                    
+            }
+        }
+    </script>
+    <form>
+        <p>Distância:</p>
+        <input type="text" id="distancia" required>Quilômetros<br><br>
+
+
+        <p>Tempo:</p>
+        <input type="text" id="tempo" required>Horas<br><br>
+
+
+        <input type="button" value="Calcular Velocidade Média" onclick="calcular()">
+    </form>
+    <p id="resultadoVelocidade"></p>
+</body>
+
+</html>
