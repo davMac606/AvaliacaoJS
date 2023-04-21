@@ -10,7 +10,9 @@
 
 <body>
     <script>
-        //esse codigo ta mt feio senhor eu quero me 
+        //esse codigo ta mt feio senhor eu quero me
+        //vou fazer pelo celular msm pq isso ta me dando agonia eu estou ficando louco
+        
         function calcular() {
             var distancia = document.getElementById("distancia").value;
             var tempo = document.getElementById("tempo").value;
@@ -27,20 +29,24 @@
                 } else {
                     if (resultado > 100) {
                         document.getElementById('avisoDistancia').innerHTML = " ";
+                        document.getElementById('avisoTempo').innerHTML = " ";
                         document.getElementById('resultadoVelocidade').style.color = "red";
                         document.getElementById('resultadoVelocidade').innerHTML = "A velocidade de " + resultado + "km/h não é permitida.";
                     } else {
                         if (resultado <= 0) {
                             document.getElementById('avisoDistancia').innerHTML = " ";
+                            document.getElementById('avisoTempo').innerHTML = " ";
                             document.getElementById('resultadoVelocidade').style.color = "red";
                             document.getElementById('resultadoVelocidade').innerHTML = "A velocidade não pode ser inferior ou igual à 0.";
                         }
                         if (resultado < 40) {
                             document.getElementById('avisoDistancia').innerHTML = " ";
+                            document.getElementById('avisoTempo').innerHTML = " ";
                             document.getElementById('resultadoVelocidade').style.color = "black";
                             document.getElementById('resultadoVelocidade').innerHTML = "A velocidade de " + resultado + "km/h é muito baixa, acelere.";
                         } else {
                             document.getElementById('avisoDistancia').innerHTML = " ";
+                            document.getElementById('avisoTempo').innerHTML = " ";
                             document.getElementById('resultadoVelocidade').style.color = "lime";
                             document.getElementById("resultadoVelocidade").innerHTML = "A velocidade média é: " + resultado + " km/h";
                             document.getElementById("distancia").value = "";
